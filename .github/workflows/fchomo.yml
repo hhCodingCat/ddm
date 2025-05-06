@@ -20,8 +20,13 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential clang flex bison g++ gawk gcc-multilib \
-          gettext git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev \
-          file wget
+          gettext git libncurses5-dev libssl-dev rsync unzip zlib1g-dev \
+          file wget python3 python3-dev
+        # Install python3-distutils manually
+        wget https://github.com/python/cpython/archive/refs/tags/v3.10.14.tar.gz
+        tar -xzf v3.10.14.tar.gz
+        cd cpython-3.10.14/Lib
+        sudo cp -r distutils /usr/lib/python3/dist-packages/
 
     - name: Download ImmortalWrt SDK
       run: |
