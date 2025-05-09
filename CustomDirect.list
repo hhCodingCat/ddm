@@ -1,0 +1,14 @@
+# CustomDirect.list: 自定义国内直连域名列表
+DOMAIN-SUFFIX,time.windows.com,no-resolve
+DOMAIN-SUFFIX,client.wns.windows.com,no-resolve
+DOMAIN-SUFFIX,oracle.com,no-resolve
+DOMAIN-SUFFIX,061024.xyz,no-resolve
+DOMAIN-SUFFIX,cloudflare.com,no-resolve
+DOMAIN-SUFFIX,cloudflare-cn.com,no-resolve
+DOMAIN-SUFFIX,cloudflare.net,no-resolve
+DOMAIN-SUFFIX,cloudflare-dns.com,no-resolve
+DOMAIN-SUFFIX,cloudflarestream.com,no-resolve
+DOMAIN-SUFFIX,cloudflarestorage.com,no-resolve
+DOMAIN-SUFFIX,one.one.one.one,no-resolve
+DOMAIN-SUFFIX,cloudflareinsights.com,no-resolve
+DOMAIN-SUFFIX,workers.dev,no-resolve
