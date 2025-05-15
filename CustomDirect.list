@@ -17,3 +17,4 @@ DOMAIN-SUFFIX,1.1.1.1,no-resolve
 DOMAIN-SUFFIX,1.0.0.1,no-resolve
 DOMAIN-SUFFIX,time.cloudflare.com,no-resolve
 DOMAIN-SUFFIX,dash.cloudflare.com,no-resolve
+DOMAIN-SUFFIX,170624.xyz,no-resolve
