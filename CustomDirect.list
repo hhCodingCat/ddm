@@ -12,3 +12,8 @@ DOMAIN-SUFFIX,cloudflarestorage.com,no-resolve
 DOMAIN-SUFFIX,one.one.one.one,no-resolve
 DOMAIN-SUFFIX,cloudflareinsights.com,no-resolve
 DOMAIN-SUFFIX,workers.dev,no-resolve
+DOMAIN-SUFFIX,pages.dev,no-resolve
+DOMAIN-SUFFIX,1.1.1.1,no-resolve
+DOMAIN-SUFFIX,1.0.0.1,no-resolve
+DOMAIN-SUFFIX,time.cloudflare.com,no-resolve
+DOMAIN-SUFFIX,dash.cloudflare.com,no-resolve
