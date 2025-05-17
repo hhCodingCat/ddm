@@ -1,7 +1,6 @@
 # CustomDirect.list: 自定义国内直连域名列表
 DOMAIN-SUFFIX,time.windows.com,no-resolve
 DOMAIN-SUFFIX,client.wns.windows.com,no-resolve
-DOMAIN-SUFFIX,oracle.com,no-resolve
 DOMAIN-SUFFIX,061024.xyz,no-resolve
 DOMAIN-SUFFIX,cloudflare.com,no-resolve
 DOMAIN-SUFFIX,cloudflare-cn.com,no-resolve
@@ -17,4 +16,23 @@ DOMAIN-SUFFIX,1.1.1.1,no-resolve
 DOMAIN-SUFFIX,1.0.0.1,no-resolve
 DOMAIN-SUFFIX,time.cloudflare.com,no-resolve
 DOMAIN-SUFFIX,dash.cloudflare.com,no-resolve
-DOMAIN-SUFFIX,170624.xyz,no-resolve
+DOMAIN-SUFFIX,oracle.com,no-resolve
+DOMAIN-SUFFIX,oraclecloud.com,no-resolve
+DOMAIN-SUFFIX,oraclecloud.net,no-resolve
+DOMAIN-SUFFIX,oracleinfinity.com,no-resolve
+DOMAIN-SUFFIX,oracleimg.com,no-resolve
+DOMAIN-SUFFIX,oracle-mail.com,no-resolve
+DOMAIN-SUFFIX,go.oracle.com,no-resolve
+DOMAIN-SUFFIX,docs.oracle.com,no-resolve
+DOMAIN-SUFFIX,cloud.oracle.com,no-resolve
+DOMAIN-SUFFIX,blogs.oracle.com,no-resolve
+DOMAIN-SUFFIX,developer.oracle.com,no-resolve
+DOMAIN-SUFFIX,education.oracle.com,no-resolve
+DOMAIN-SUFFIX,partner.oracle.com,no-resolve
+DOMAIN-SUFFIX,support.oracle.com,no-resolve
+DOMAIN-SUFFIX,community.oracle.com,no-resolve
+DOMAIN-SUFFIX,profile.oracle.com,no-resolve
+DOMAIN-SUFFIX,shop.oracle.com,no-resolve
+DOMAIN-SUFFIX,academy.oracle.com,no-resolve
+DOMAIN-SUFFIX,events.oracle.com,no-resolve
+DOMAIN-SUFFIX,otn.oracle.com,no-resolve
