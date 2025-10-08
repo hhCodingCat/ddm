@@ -3,7 +3,7 @@
     "servers": [
       {"tag": "local", "type": "udp", "server": "223.5.5.5"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
-      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 代理"},
+      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
     ],
     "rules": [
@@ -20,7 +20,7 @@
     "reverse_mapping": true
   },
   "outbounds": [
-    {"tag": "🚀 代理", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
+    {"tag": "🚀 默认代理", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "🖐️ 手动选择", "type": "selector", "outbounds": []},
     {"tag": "🔄 自动选择", "type": "urltest", "outbounds": []},
     {"tag": "🌐 直连", "type": "direct"},
@@ -43,7 +43,7 @@
       {"inbound": "dns-in", "action": "hijack-dns"},
       {"ip_is_private": true, "outbound": "🌐 直连"},
       {"clash_mode": "direct", "outbound": "🌐 直连"},
-      {"clash_mode": "global", "outbound": "🚀 代理"},
+      {"clash_mode": "global", "outbound": "🚀 默认代理"},
       {"rule_set": "geosite-ai", "outbound": "🤖 AI服务"},
       {"rule_set": "geosite-youtube", "outbound": "📺 YouTube"},
       {"rule_set": "geosite-google", "outbound": "🔍 Google"},
@@ -62,7 +62,7 @@
       {"rule_set": "geoip-telegram", "outbound": "📱 Telegram"},
       {"rule_set": "geoip-netflix", "outbound": "🍿 Netflix"},
       {"rule_set": "geoip-cn", "outbound": "🌐 直连"},
-      {"rule_set": "geosite-!cn", "outbound": "🚀 代理"}
+      {"rule_set": "geosite-!cn", "outbound": "🚀 默认代理"}
     ],
     "rule_set": [
       {"tag": "geosite-ai", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🌐 直连"},
@@ -84,7 +84,7 @@
       {"tag": "geoip-netflix", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs", "download_detour": "🌐 直连"},
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🌐 直连"}
     ],
-    "final": "🚀 代理",
+    "final": "🚀 默认代理",
     "default_domain_resolver": {"server": "public"}
   },
   "inbounds": [
