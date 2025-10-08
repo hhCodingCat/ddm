@@ -1,10 +1,10 @@
-// 脚本功能：解析 Sing-box 订阅，将节点按正则规则分配到指定出站组
-// 支持组合订阅或单订阅，自动插入 COMPATIBLE(direct) 防止空出站组报错
+// 脚本功能：解析 Sing-box 订阅，将节点按正则规则分配到 sub-momofake.json 的出站组
+// 支持单一订阅或组合订阅，自动插入 COMPATIBLE(direct) 防止空出站组报错
 // 参数说明：
-//   - type: 订阅类型（collection 或 subscription）
-//   - name: 订阅名称
-//   - outbound: 出站组匹配规则（如 🕳ℹ️all|all-auto🏷ℹ️.*）
-//   - includeUnsupportedProxy: 是否包含 SSR 等不支持的协议（true/false）
+//   - type: 订阅类型（collection 或 subscription，默认 subscription）
+//   - name: 订阅名称（必填）
+//   - outbound: 出站组匹配规则（必填，如 🕳ℹ️all|all-auto🏷ℹ️.*）
+//   - includeUnsupportedProxy: 是否包含 SSR 等不支持的协议（true/false，默认 false）
 //   - url: 可选的订阅 URL（需 encodeURIComponent）
 
 console.log('🚀 [Sing-box 模板脚本] 开始执行');
@@ -19,7 +19,7 @@ console.log(`📋 参数：type=${subType}, name=${name}, outbound=${outbound}, 
 
 // 解析配置文件
 const parser = ProxyUtils.JSON5 || JSON;
-console.log(`📄 使用 ${ProxyUtils.JSON5 ? 'JSON5' : 'JSON'} 解析配置文件`);
+console.log(`📄 使用 ${ProxyUtils.JSON5 ? 'JSON5' : 'JSON'} 解析 sub-momofake.json`);
 let config;
 try {
   config = parser.parse($content ?? $files[0]);
@@ -78,7 +78,7 @@ const configOutboundTags = new Set(config.outbounds.map(o => o.tag));
 outboundRules.forEach(({ outboundRegex, outboundPattern }) => {
   const matched = config.outbounds.some(o => outboundRegex.test(o.tag));
   if (!matched) {
-    console.warn(`⚠️ 出站规则 ${outboundPattern} 未匹配到配置文件中的任何出站组`);
+    console.warn(`⚠️ 出站规则 ${outboundPattern} 未匹配到 sub-momofake.json 中的任何出站组`);
   }
 });
 
