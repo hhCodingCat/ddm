@@ -1,21 +1,20 @@
 {
   "dns": {
     "servers": [
-      {"tag": "local", "type": "udp", "server": "119.29.29.29"},
+      {"tag": "local", "type": "udp", "server": "223.5.5.5"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
-      {"tag": "foreign", "type": "https", "server": "1.1.1.1", "detour": "🚀 默认代理"},
-      {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
+      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"}
     ],
     "rules": [
       {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"query_type": "HTTPS", "action": "reject"},
       {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "foreign"},
-      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"},
-      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
+      {"rule_set": "geosite-ads", "server": "local", "action": "reject"},
+      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"}
     ],
     "final": "foreign",
-    "strategy": "prefer_ipv6",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true
   },
@@ -36,7 +35,7 @@
     {"tag": "🖱️ Microsoft", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "☁️ OneDrive", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "🍎 Apple", "type": "selector", "outbounds": ["🌐 直连", "🖐️ 手动选择", "🔄 自动选择"]},
-	  {"tag": "block", "type": "block"}							 
+    {"tag": "block", "type": "block"}
   ],
   "route": {
     "rules": [
@@ -57,7 +56,7 @@
       {"rule_set": "geosite-tiktok", "outbound": "🎶 TikTok"},
       {"rule_set": "geosite-netflix", "outbound": "🍿 Netflix"},
       {"rule_set": "geosite-paypal", "outbound": "💳 PayPal"},
-	  {"rule_set": "geosite-steamcn", "outbound": "🌐 直连"},
+      {"rule_set": "geosite-steamcn", "outbound": "🌐 直连"},
       {"rule_set": "geosite-steam", "outbound": "🎮 Steam"},
       {"rule_set": "geosite-cn", "outbound": "🌐 直连"},
       {"rule_set": "geoip-google", "outbound": "🔍 Google"},
@@ -68,7 +67,7 @@
       {"rule_set": "geosite-!cn", "outbound": "🚀 默认代理"}
     ],
     "rule_set": [
-	  {"tag": "geosite-ads", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs", "download_detour": "🌐 直连"},
+      {"tag": "geosite-ads", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/main/rule-set/geosite-category-ads-all.srs", "download_detour": "🌐 直连", "update_interval": 3600},
       {"tag": "geosite-ai", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🌐 直连"},
       {"tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🌐 直连"},
       {"tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🌐 直连"},
@@ -140,7 +139,7 @@
     "cache_file": {
       "enabled": true,
       "path": "/etc/momo/run/cache.db",
-      "store_fakeip": true
+      "store_fakeip": false
     },
     "clash_api": {
       "external_controller": "0.0.0.0:9095",
@@ -153,7 +152,7 @@
   },
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "debug",
     "timestamp": true
   }
 }
