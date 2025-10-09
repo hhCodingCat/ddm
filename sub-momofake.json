@@ -67,7 +67,7 @@
     {"rule_set": "geosite-!cn", "outbound": "🚀 默认代理"}
   ],
   "rule_set": [
-    {"tag": "geosite-ads", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/main/rule-set/geosite-category-ads-all.srs", "download_detour": "🌐 直连", "update_interval": "3600s"},
+    {"tag": "geosite-ads", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/main/rule-set/geosite-category-ads-all.srs", "download_detour": "🌐 直连", "update_interval": "3600"},
     {"tag": "geosite-ai", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🌐 直连"},
     {"tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🌐 直连"},
     {"tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🌐 直连"},
