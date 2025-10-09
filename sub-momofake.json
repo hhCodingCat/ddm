@@ -36,6 +36,7 @@
     {"tag": "🖱️ Microsoft", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "☁️ OneDrive", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "🍎 Apple", "type": "selector", "outbounds": ["🌐 直连", "🖐️ 手动选择", "🔄 自动选择"]}
+	{"tag": "block", "type": "block"}								 
   ],
   "route": {
     "rules": [
@@ -44,6 +45,7 @@
       {"ip_is_private": true, "outbound": "🌐 直连"},
       {"clash_mode": "direct", "outbound": "🌐 直连"},
       {"clash_mode": "global", "outbound": "🚀 默认代理"},
+      {"rule_set": "geosite-ads", "outbound": "block"},
       {"rule_set": "geosite-ai", "outbound": "🤖 AI服务"},
       {"rule_set": "geosite-youtube", "outbound": "📺 YouTube"},
       {"rule_set": "geosite-google", "outbound": "🔍 Google"},
@@ -66,6 +68,7 @@
       {"rule_set": "geosite-!cn", "outbound": "🚀 默认代理"}
     ],
     "rule_set": [
+	  {"tag": "geosite-ads", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs", "download_detour": "🌐 直连"},
       {"tag": "geosite-ai", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🌐 直连"},
       {"tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🌐 直连"},
       {"tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🌐 直连"},
