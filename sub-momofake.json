@@ -35,8 +35,8 @@
     {"tag": "🎮 Steam", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "🖱️ Microsoft", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
     {"tag": "☁️ OneDrive", "type": "selector", "outbounds": ["🖐️ 手动选择", "🔄 自动选择", "🌐 直连"]},
-    {"tag": "🍎 Apple", "type": "selector", "outbounds": ["🌐 直连", "🖐️ 手动选择", "🔄 自动选择"]}
-	{"tag": "block", "type": "block"}								 
+    {"tag": "🍎 Apple", "type": "selector", "outbounds": ["🌐 直连", "🖐️ 手动选择", "🔄 自动选择"]},
+	  {"tag": "block", "type": "block"}							 
   ],
   "route": {
     "rules": [
