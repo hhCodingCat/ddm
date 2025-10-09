@@ -15,7 +15,7 @@
 
     ],
     "final": "foreign",
-    "strategy": "prefer_ipv6",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true
   },
