@@ -69,7 +69,8 @@ jobs:
           git commit -m "Update rules"
           git push
         fi
-       cleanup:
+
+  cleanup:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -93,4 +94,3 @@ jobs:
         | jq -r '.[] | select(.status == "completed") | .databaseId' \
         | tail -n +2 \
         | xargs -I {} gh run delete {} -y
-   
