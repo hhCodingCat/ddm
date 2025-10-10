@@ -81,10 +81,11 @@ jobs:
         sudo apt update
         sudo apt install gh -y
 
-    - name: Authenticate GitHub CLI
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: gh auth setup-git
+    - name: Install GitHub CLI
+      run: |
+        curl -fsSL https://github.com/cli/cli/releases/latest/download/gh_linux_amd64.deb -o gh.deb
+         sudo dpkg -i gh.deb
+         rm gh.deb
 
     - name: Delete old workflow runs
       env:
