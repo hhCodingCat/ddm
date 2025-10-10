@@ -1,1 +1,1 @@
-1
+https://raw.githubusercontent.com/hhCodingCat/ddm/refs/heads/main/CustomDirect.list
