@@ -23,6 +23,7 @@
         "education.oracle.com",
         "events.oracle.com",
         "go.oracle.com",
+        "jinke.ggff.net",
         "one.one.one.one",
         "oracle-mail.com",
         "oracle.com",
@@ -38,7 +39,8 @@
         "support.oracle.com",
         "time.cloudflare.com",
         "time.windows.com",
-        "workers.dev"
+        "workers.dev",
+        "www.bing.com"
       ]
     },
     {
@@ -64,6 +66,7 @@
         ".education.oracle.com",
         ".events.oracle.com",
         ".go.oracle.com",
+        ".jinke.ggff.net",
         ".one.one.one.one",
         ".oracle-mail.com",
         ".oracle.com",
@@ -79,7 +82,8 @@
         ".support.oracle.com",
         ".time.cloudflare.com",
         ".time.windows.com",
-        ".workers.dev"
+        ".workers.dev",
+        ".www.bing.com"
       ]
     }
   ],
