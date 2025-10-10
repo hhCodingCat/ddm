@@ -81,11 +81,11 @@ jobs:
         sudo apt update
         sudo apt install gh -y
 
-    - name: Install GitHub CLI
+    - name: 安装 GitHub CLI (gh)
       run: |
-        curl -fsSL https://github.com/cli/cli/releases/latest/download/gh_linux_amd64.deb -o gh.deb
-         sudo dpkg -i gh.deb
-         rm gh.deb
+        curl -fsSL https://github.com/cli/cli/releases/latest/download/gh_2.46.0_linux_amd64.deb -o gh.deb
+        sudo dpkg -i gh.deb
+        rm gh.deb
 
     - name: Delete old workflow runs
       env:
