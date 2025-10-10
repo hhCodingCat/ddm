@@ -19,7 +19,7 @@ jobs:
 
     - name: "Setup sing-box"
       env:
-        SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.8.1/sing-box_1.8.1_linux_amd64.deb"
+        SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.12.9/sing-box_1.12.9_amd64.deb"  # 更新到最新稳定版
       run: |
           set -Eeuo pipefail
           wget -O sing-box.deb $SING_BOX_DEB_URL
@@ -35,27 +35,26 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas requests pyyaml
 
-    - name: Run script
-      run: python ../convert.py
-      working-directory: ./data/
+    - name: Create output directories
+      run: |
+        mkdir -p ./data/rule_json ./data/rule_srs
 
-    - name: Archive files
-      run: tar -cvf ./data/rules_archive.tar --exclude="*.tar" -C ./data/ .
+    - name: Run script
+      run: python convert.py  # 移除 ../，因为 working-directory 是 ./data/，source.txt 在根目录需调整路径或移动
+      working-directory: ./data/
+      env:
+        SOURCE_PATH: "../source.txt"  # 如果需调整源文件路径
 
     - name: Move files to rule_json and rule_srs
       run: |
-        mkdir -p ./rule_json/
-        mkdir -p ./rule_srs/
-        tar --wildcards -xvf ./data/rules_archive.tar -C ./rule_json/ '*.json'
-        tar --wildcards -xvf ./data/rules_archive.tar -C ./rule_srs/ '*.srs'
+        mv ./data/*.json ./data/rule_json/ 2>/dev/null || true
+        mv ./data/*.srs ./data/rule_srs/ 2>/dev/null || true
 
-    - name: Commit and push config.json
+    - name: Commit and push
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git add ./data/rules_archive.tar
-        git add ./rule_json/*.json
-        git add ./rule_srs/*.srs
+        git add ./data/rule_json/*.json ./data/rule_srs/*.srs
 
         if git diff --staged --quiet; then
           echo "No changes to commit"
