@@ -18,12 +18,18 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: "Setup sing-box"
-      env:
-        SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.12.9/sing-box_1.12.9_amd64.deb"  # 更新到最新稳定版
       run: |
-          set -Eeuo pipefail
-          wget -O sing-box.deb $SING_BOX_DEB_URL
-          sudo dpkg -i sing-box.deb
+        sudo mkdir -p /etc/apt/keyrings
+        sudo curl -fsSL https://sing-box.app/gpg.key -o /etc/apt/keyrings/sagernet.asc
+        sudo chmod a+r /etc/apt/keyrings/sagernet.asc
+        echo 'Types: deb
+URIs: https://deb.sagernet.org/
+Suites: *
+Components: *
+Enabled: yes
+Signed-By: /etc/apt/keyrings/sagernet.asc' | sudo tee /etc/apt/sources.list.d/sagernet.sources
+        sudo apt-get update
+        sudo apt-get install -y sing-box
 
     - name: Set up Python3
       uses: actions/setup-python@v2
@@ -40,10 +46,8 @@ jobs:
         mkdir -p ./data/rule_json ./data/rule_srs
 
     - name: Run script
-      run: python convert.py  # 移除 ../，因为 working-directory 是 ./data/，source.txt 在根目录需调整路径或移动
+      run: python convert.py
       working-directory: ./data/
-      env:
-        SOURCE_PATH: "../source.txt"  # 如果需调整源文件路径
 
     - name: Move files to rule_json and rule_srs
       run: |
