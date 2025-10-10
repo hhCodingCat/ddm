@@ -69,4 +69,14 @@ jobs:
           git commit -m "Update rules"
           git push
         fi
-        
+
+  cleanup-workflow-runs:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    steps:
+    - name: Delete old workflow runs and keep latest 1
+      uses: actions/delete-workflow-runs@v3
+      with:
+        retain_runs: 1
+        delete_workflow_pattern: 'main.yml'
