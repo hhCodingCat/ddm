@@ -83,9 +83,8 @@ jobs:
 
     - name: 安装 GitHub CLI (gh)
       run: |
-        curl -fsSL https://github.com/cli/cli/releases/latest/download/gh_2.46.0_linux_amd64.deb -o gh.deb
-        sudo dpkg -i gh.deb
-        rm gh.deb
+        . /etc/os-release
+        echo "deb [arch=$(dpkg --print-architecture)] https://cli.github.com/packages $VERSION_CODENAME stable" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
     - name: Delete old workflow runs
       env:
